@@ -1,0 +1,71 @@
+{
+  "name": "mm-ts-utils-client",
+  "version": "1.0.0",
+  "description": "Ongoing collection of various personal TypeScript client utils...",
+  "main": "dist/main.js",
+  "scripts": {
+    "clean": "rimraf dist/*",
+    "build": "npm run clean && tsc",
+    "test": "NODE_ENV=testing jest --watch --runInBand",
+    "prettier": "prettier --single-quote --trailing-comma es5 --tab-width 4 --arrow-parens always --write 'src/**/*.{js,jsx,ts,tsx,scss,json}'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marianmeres/mm-ts-utils-client.git"
+  },
+  "author": "Marian Meres <marian@meres.sk>",
+  "license": "WTFPL",
+  "bugs": {
+    "url": "https://github.com/marianmeres/mm-ts-utils-client/issues"
+  },
+  "homepage": "https://github.com/marianmeres/mm-ts-utils-client#readme",
+  "dependencies": {
+    "@types/jest": "^23.3.13",
+    "@types/jquery": "^3.3.29",
+    "@types/lodash": "^4.14.120",
+    "@types/websocket": "0.0.40",
+    "@types/ws": "^6.0.1",
+    "babel-jest": "^24.0.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "dotenv": "^6.2.0",
+    "eventemitter3": "^3.1.0",
+    "jest": "^23.5.0",
+    "lodash": "^4.17.11",
+    "lodash-es": "^4.17.11",
+    "mm-ts-utils": "git+https://github.com/marianmeres/mm-ts-utils.git",
+    "prettier": "^1.16.4",
+    "rimraf": "^2.6.3",
+    "ts-jest": "^23.10.5",
+    "typescript": "^3.3.1",
+    "ws": "^6.1.3"
+  },
+  "jest": {
+    "verbose": false,
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx"
+    ],
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest",
+      "^.+\\.jsx?$": "babel-jest"
+    },
+    "transformIgnorePatterns": [
+      "<rootDir>/node_modules/(?!lodash-es/.*)"
+    ],
+    "testMatch": [
+      "**/__tests__/**/*.(ts|tsx|js|jsx)",
+      "**/?(*.)(spec|test).(ts|tsx|js|jsx)"
+    ],
+    "modulePathIgnorePatterns": [
+      "<rootDir>/dist/"
+    ],
+    "globals": {
+      "ts-jest": {
+        "diagnostics": false
+      },
+      "__TESTING__": true
+    }
+  }
+}

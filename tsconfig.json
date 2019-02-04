@@ -1,0 +1,32 @@
+{
+    "include": [
+        "src/**/*.ts"
+    ],
+    "exclude": [
+        "node_modules",
+        "src/**/*.test.ts",
+        "**/__tests__/*.*"
+    ],
+    "compilerOptions": {
+        "allowJs": false,
+        "declaration": true,
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": false,
+        "lib": [
+            "dom",
+            "dom.iterable",
+            "esnext"
+        ],
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "noImplicitAny": false,
+        "noImplicitReturns": true,
+        "noImplicitThis": true,
+        "noUnusedLocals": false,
+        "outDir": "dist",
+        "sourceMap": false,
+        "strictNullChecks": false,
+        "suppressImplicitAnyIndexErrors": false,
+        "target": "es5"
+    }
+}
