@@ -135,4 +135,4 @@ fabric.properties
 # Editor-based Rest Client
 .idea/httpRequests
 
-/src/mm-ws/__tests__/tmp/
+/src/ws/__tests__/tmp/
