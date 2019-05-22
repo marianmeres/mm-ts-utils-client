@@ -6,5 +6,5 @@ export * from './storage/MMStorage';
 
 export * from './url/mm-parse-url';
 
-export * from './ws/WsMessage';
+export * from './ws/WsClient';
 export * from './ws/WsMessage';

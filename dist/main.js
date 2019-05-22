@@ -8,5 +8,5 @@ __export(require("./dom-jquery-dependant/mm-up-while-not-matched"));
 __export(require("./storage/mm-is-storage-available"));
 __export(require("./storage/MMStorage"));
 __export(require("./url/mm-parse-url"));
-__export(require("./ws/WsMessage"));
+__export(require("./ws/WsClient"));
 __export(require("./ws/WsMessage"));
