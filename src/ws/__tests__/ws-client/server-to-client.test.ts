@@ -4,7 +4,6 @@ import * as dotenv from 'dotenv';
 dotenv.config();
 import { createCloseWssIf, createDoneIf, wssPort, wsUrl } from './_utils';
 
-
 test('server to client message works', async (done) => {
     let msg = '';
     let port = wssPort();

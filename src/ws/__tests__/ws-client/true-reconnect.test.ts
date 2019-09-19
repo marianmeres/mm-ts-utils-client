@@ -21,7 +21,8 @@ test('true reconnect works', async (done) => {
 
     const ss = new ws.Server({ port }, () => {
         // server's client message handling
-        ss.on('connection', (client) => { // client: WebSocket, socket: WebSocket, request: http.IncomingMessage
+        ss.on('connection', (client) => {
+            // client: WebSocket, socket: WebSocket, request: http.IncomingMessage
             client.on('message', (data) => {
                 expect(data).toEqual('1');
                 ss.close(afterClose);

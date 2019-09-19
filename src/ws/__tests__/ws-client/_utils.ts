@@ -18,7 +18,10 @@ export const createCloseWssIf = () => {
             });
         } else {
             _closeWssIfTimer && clearTimeout(_closeWssIfTimer);
-            _closeWssIfTimer = setTimeout(() => closeWssIf(_wss, condition, done), 10) as any;
+            _closeWssIfTimer = setTimeout(
+                () => closeWssIf(_wss, condition, done),
+                10
+            ) as any;
         }
     };
 
