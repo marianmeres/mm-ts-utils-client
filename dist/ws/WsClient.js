@@ -12,6 +12,13 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+var __spreadArrays = (this && this.__spreadArrays) || function () {
+    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
+    for (var r = Array(s), k = 0, i = 0; i < il; i++)
+        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
+            r[k] = a[j];
+    return r;
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -233,7 +240,7 @@ var WsClient = /** @class */ (function (_super) {
         }
         this.log(event, args);
         // maybe emit wilcard here as well?
-        return _super.prototype.emit.apply(this, [event].concat(args));
+        return _super.prototype.emit.apply(this, __spreadArrays([event], args));
     };
     /**
      * @param msg
@@ -328,9 +335,7 @@ var WsClient = /** @class */ (function (_super) {
         if (doRoomAction) {
             // && this.isOpen()
             this.send(WsMessage_1.WsMessage.stringify({
-                type: isJoin
-                    ? WsMessage_1.WsMessage.TYPE_JOIN_ROOM
-                    : WsMessage_1.WsMessage.TYPE_LEAVE_ROOM,
+                type: isJoin ? WsMessage_1.WsMessage.TYPE_JOIN_ROOM : WsMessage_1.WsMessage.TYPE_LEAVE_ROOM,
                 room: room,
             }), function () {
                 // debug

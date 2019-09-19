@@ -3,4 +3,4 @@
  *
  * @param $context
  */
-export declare function mmGetFocusableEls($context: any): JQuery<HTMLElement>;
+export declare function mmGetFocusableEls($context: any): any;

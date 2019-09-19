@@ -1,3 +1,4 @@
+/// <reference types="node" />
 import * as WebSocket from 'ws';
 import * as http from 'http';
 import { WsMessage } from './WsMessage';

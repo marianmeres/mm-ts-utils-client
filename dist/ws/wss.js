@@ -13,9 +13,7 @@ var WsMessage_1 = require("./WsMessage");
 var mm_ts_utils_1 = require("mm-ts-utils");
 //
 var _wsDebug = function (msg) { return console.log(msg); };
-var isOpen = function (client) {
-    return client.readyState === WebSocket.OPEN;
-};
+var isOpen = function (client) { return client.readyState === WebSocket.OPEN; };
 var _notAllowedHostWarn = new Map();
 /**
  * @param {"http".Server | number} serverOrPort
@@ -182,9 +180,7 @@ exports.wsSend = function (wss, msg, ws) {
             isOpen(client) &&
             // target by room id (to all in the room) or client id (directly, privately to one client)
             // or to all if room is '' (empty)
-            (forceToAllRooms ||
-                client.cid === msg.room ||
-                client.rooms.has(msg.room))) {
+            (forceToAllRooms || client.cid === msg.room || client.rooms.has(msg.room))) {
             client.send(msg.stringify());
         }
     });
@@ -195,9 +191,7 @@ exports.wsSendPayloadToRoom = function (wss, payload, room, type) {
     if (!Array.isArray(room)) {
         room = [room];
     }
-    room.forEach(function (r) {
-        return exports.wsSend(wss, WsMessage_1.WsMessage.factory({ payload: payload, room: r, type: type }));
-    });
+    room.forEach(function (r) { return exports.wsSend(wss, WsMessage_1.WsMessage.factory({ payload: payload, room: r, type: type })); });
 };
 // sugar
 exports.wsSendPayloadToAll = function (wss, payload, type) {
