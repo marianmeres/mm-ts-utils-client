@@ -7,8 +7,8 @@
   "scripts": {
     "clean": "rimraf dist/*",
     "build": "npm run clean && tsc",
-    "test": "NODE_ENV=testing jest --watch --runInBand",
-    "prettier": "prettier --single-quote --trailing-comma es5 --tab-width 4 --arrow-parens always --write 'src/**/*.{js,jsx,ts,tsx,scss,json}'"
+    "test": "cross-env NODE_ENV=test jest --watch --runInBand",
+    "prettier": "prettier --print-width 90 --single-quote --trailing-comma es5 --tab-width 4 --arrow-parens always --write \"{src,scripts}/**/*.{js,jsx,ts,tsx,scss}\""
   },
   "repository": {
     "type": "git",
@@ -21,26 +21,27 @@
   },
   "homepage": "https://github.com/marianmeres/mm-ts-utils-client#readme",
   "dependencies": {
-    "dotenv": "^6.2.0",
     "eventemitter3": "^3.1.0",
-    "lodash": "^4.17.11",
-    "lodash-es": "^4.17.11",
+    "lodash": "^4.17.15",
+    "lodash-es": "^4.17.15",
     "mm-ts-utils": "git+https://github.com/marianmeres/mm-ts-utils.git",
     "ws": "^6.1.3"
   },
   "devDependencies": {
-    "@types/jest": "^23.3.13",
-    "@types/jquery": "^3.3.29",
-    "@types/lodash": "^4.14.120",
-    "@types/websocket": "0.0.40",
-    "@types/ws": "^6.0.1",
-    "babel-jest": "^24.0.0",
+    "@babel/preset-env": "^7.6.0",
+    "@types/jest": "^24.0.18",
+    "@types/lodash": "^4.14.138",
+    "@types/node": "^12.7.5",
+    "babel-jest": "^24.9.0",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
-    "jest": "^23.5.0",
-    "prettier": "^1.16.4",
-    "rimraf": "^2.6.3",
-    "ts-jest": "^23.10.5",
-    "typescript": "^3.3.1"
+    "cross-env": "^6.0.0",
+    "dotenv": "^6.2.0",
+    "if-env": "^1.0.4",
+    "jest": "^24.9.0",
+    "prettier": "^1.18.2",
+    "rimraf": "^2.7.1",
+    "ts-jest": "^24.1.0",
+    "typescript": "^3.6.3"
   },
   "jest": {
     "verbose": false,

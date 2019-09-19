@@ -23,10 +23,7 @@ const closeWssIf = (_wss: ws.Server, condition: () => boolean, done) => {
         });
     } else {
         _closeWssIfTimer && clearTimeout(_closeWssIfTimer);
-        _closeWssIfTimer = setTimeout(
-            () => closeWssIf(_wss, condition, done),
-            10
-        ) as any;
+        _closeWssIfTimer = setTimeout(() => closeWssIf(_wss, condition, done), 10) as any;
     }
 };
 
@@ -44,8 +41,7 @@ const doneIf = (condition: () => boolean, done) => {
 // save values
 const _file = path.resolve(__dirname, './tmp/output.txt');
 const fileWrite = (data) => fs.writeFileSync(_file, data);
-const fileRead = () =>
-    fs.existsSync(_file) ? fs.readFileSync(_file).toString() : null;
+const fileRead = () => (fs.existsSync(_file) ? fs.readFileSync(_file).toString() : null);
 const fileDelete = () => fs.existsSync(_file) && fs.unlinkSync(_file);
 
 beforeEach(async (done) => {
@@ -189,9 +185,7 @@ test('true reconnect works', (done) => {
                     await mmDelay(2 * delay);
                     expect(closeCounter).toEqual(1); // no change here...
                     expect(openCounter).toEqual(2); // IMPORTANT!
-                    expect(wsc.connection.readyState).toEqual(
-                        WsClient.READYSTATE_OPEN
-                    ); // IMPORTANT!
+                    expect(wsc.connection.readyState).toEqual(WsClient.READYSTATE_OPEN); // IMPORTANT!
                     ss.close(async () => {
                         await mmDelay(5);
                         expect(wsc.connection.readyState).toEqual(

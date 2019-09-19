@@ -66,10 +66,7 @@ export class WsClient extends EventEmitter {
      * @param _url
      * @param options
      */
-    constructor(
-        protected _url: string,
-        public readonly options?: WsClientOptions
-    ) {
+    constructor(protected _url: string, public readonly options?: WsClientOptions) {
         super();
         this.options = this.options || ({} as WsClientOptions);
 
@@ -292,10 +289,7 @@ export class WsClient extends EventEmitter {
                 if (id) {
                     WsClient._pendingCallbacks.set(id, onSuccess);
                 } else {
-                    this.log(
-                        'warning',
-                        'Missing message id, ignoring `onSuccess`.'
-                    );
+                    this.log('warning', 'Missing message id, ignoring `onSuccess`.');
                 }
             } catch (e) {
                 this.log(
@@ -374,9 +368,7 @@ export class WsClient extends EventEmitter {
         }
 
         if (!doRoomAction) {
-            this.log(
-                `Skipping (unneeded) ${isJoin ? 'JOIN' : 'LEAVE'} for ${room}`
-            );
+            this.log(`Skipping (unneeded) ${isJoin ? 'JOIN' : 'LEAVE'} for ${room}`);
         }
 
         // we don't need to check for `isOpen` because messages are queued in order
@@ -385,20 +377,14 @@ export class WsClient extends EventEmitter {
             // && this.isOpen()
             this.send(
                 WsMessage.stringify({
-                    type: isJoin
-                        ? WsMessage.TYPE_JOIN_ROOM
-                        : WsMessage.TYPE_LEAVE_ROOM,
+                    type: isJoin ? WsMessage.TYPE_JOIN_ROOM : WsMessage.TYPE_LEAVE_ROOM,
                     room,
                 }),
                 () => {
                     // debug
                     const isRejoin = isJoin && this._joinedRooms.has(room);
                     const joinLabel = (isRejoin ? 'RE-' : '') + 'JOINED';
-                    this.log(
-                        `${this.cid} ${
-                            isJoin ? joinLabel : 'LEFT'
-                        } ROOM ${room}`
-                    );
+                    this.log(`${this.cid} ${isJoin ? joinLabel : 'LEFT'} ROOM ${room}`);
 
                     // save (!important)
                     isJoin

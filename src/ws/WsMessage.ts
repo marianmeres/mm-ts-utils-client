@@ -57,11 +57,7 @@ export class WsMessage {
         let { payload, type, room, id, expectsResponse } = parsed;
 
         // parsed ok, but still if all are undefined, consider it as unknown
-        if (
-            ![payload, type, room, id, expectsResponse].some(
-                (v) => v !== void 0
-            )
-        ) {
+        if (![payload, type, room, id, expectsResponse].some((v) => v !== void 0)) {
             return new WsMessage(data.toString());
         }
 

@@ -26,8 +26,7 @@ interface WssInitOptions {
 //
 const _wsDebug = (msg) => console.log(msg);
 
-const isOpen = (client: AdvancedWebSocket) =>
-    client.readyState === WebSocket.OPEN;
+const isOpen = (client: AdvancedWebSocket) => client.readyState === WebSocket.OPEN;
 
 const _notAllowedHostWarn = new Map();
 
@@ -210,11 +209,7 @@ export const createWss = (
  * @param {WsMessage} msg
  * @param {WebSocket} ws
  */
-export const wsSend = (
-    wss: WebSocket.Server,
-    msg: WsMessage,
-    ws: WebSocket = null
-) => {
+export const wsSend = (wss: WebSocket.Server, msg: WsMessage, ws: WebSocket = null) => {
     // empty room `` is considered "force to all"... subject of change...
     let forceToAllRooms = msg.room === '';
     // _wsDebug(`BROADCAST to ${forceToAllRooms ? 'all' : msg.room}`);
@@ -224,9 +219,7 @@ export const wsSend = (
             isOpen(client) &&
             // target by room id (to all in the room) or client id (directly, privately to one client)
             // or to all if room is '' (empty)
-            (forceToAllRooms ||
-                client.cid === msg.room ||
-                client.rooms.has(msg.room))
+            (forceToAllRooms || client.cid === msg.room || client.rooms.has(msg.room))
         ) {
             client.send(msg.stringify());
         }
@@ -243,9 +236,7 @@ export const wsSendPayloadToRoom = (
     if (!Array.isArray(room)) {
         room = [room];
     }
-    room.forEach((r) =>
-        wsSend(wss, WsMessage.factory({ payload, room: r, type }))
-    );
+    room.forEach((r) => wsSend(wss, WsMessage.factory({ payload, room: r, type })));
 };
 
 // sugar

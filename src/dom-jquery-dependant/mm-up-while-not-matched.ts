@@ -16,11 +16,7 @@ const _isFunction = (obj) => {
  * @param {number} traverseLimit
  * @returns {any}
  */
-export function mmUpWhileNotMatched(
-    $el: any,
-    matcher,
-    traverseLimit: number = 5
-) {
+export function mmUpWhileNotMatched($el: any, matcher, traverseLimit: number = 5) {
     if (!_isFunction(matcher)) {
         return false;
     } // no-op
