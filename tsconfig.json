@@ -10,7 +10,7 @@
     "compilerOptions": {
         "allowJs": false,
         "declaration": true,
-        "esModuleInterop": true,
+//        "esModuleInterop": true,
         "forceConsistentCasingInFileNames": false,
         "lib": [
             "dom",
