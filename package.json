@@ -22,27 +22,27 @@
   "homepage": "https://github.com/marianmeres/mm-ts-utils-client#readme",
   "dependencies": {
     "eventemitter3": "^4.0.0",
+    "jest": "^24.9.0",
     "lodash": "^4.17.15",
     "mm-ts-utils": "git+https://github.com/marianmeres/mm-ts-utils.git",
     "ws": "^6.1.3"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.6.0",
-    "@types/jest": "^24.0.18",
-    "@types/lodash": "^4.14.138",
-    "@types/node": "^12.7.5",
+    "@babel/preset-env": "^7.6.3",
+    "@types/jest": "^24.0.20",
+    "@types/lodash": "^4.14.144",
+    "@types/node": "^12.11.7",
     "@types/websocket": "0.0.40",
     "@types/ws": "^6.0.3",
     "babel-jest": "^24.9.0",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
-    "cross-env": "^6.0.0",
+    "cross-env": "^6.0.3",
     "dotenv": "^6.2.0",
     "if-env": "^1.0.4",
-    "jest": "^24.9.0",
     "prettier": "^1.18.2",
     "rimraf": "^2.7.1",
     "ts-jest": "^24.1.0",
-    "typescript": "^3.6.3"
+    "typescript": "^3.6.4"
   },
   "jest": {
     "verbose": false,

@@ -1,3 +1,5 @@
+export * from './browser/mm-copy-string-to-clipboard';
+export * from './browser/mm-detect-browser';
 export * from './dom-jquery-dependant/mm-get-focusable-els';
 export * from './dom-jquery-dependant/mm-up-while-not-matched';
 export * from './storage/mm-is-storage-available';
