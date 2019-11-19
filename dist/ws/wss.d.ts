@@ -12,6 +12,7 @@ export interface AdvancedWebSocket extends WebSocket {
 interface WssInitOptions {
     autoReconnectInterval?: number;
     originWhitelist?: string[];
+    logger?: (...rest: any[]) => void;
 }
 /**
  * @param {"http".Server | number} serverOrPort

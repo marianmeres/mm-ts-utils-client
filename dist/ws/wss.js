@@ -26,12 +26,13 @@ exports.createWss = function (serverOrPort, options) {
     }
     args.path = args.path === void 0 ? '/ws/' : args.path; // hard default
     var wss = new WebSocket.Server(args);
+    var clog = options.logger || (function () { return void 0; });
     // debug
     if (args.port) {
-        console.log("WebSocket.Server listening on " + args.port + "...");
+        clog("WebSocket.Server listening on " + args.port + "...");
     }
     else {
-        console.log("WebSocket.Server listening on http.Server's port...");
+        clog("WebSocket.Server listening on http.Server's port...");
     }
     //
     wss.on('connection', function (ws, req) {
