@@ -21,6 +21,7 @@ export interface AdvancedWebSocket extends WebSocket {
 interface WssInitOptions {
     autoReconnectInterval?: number;
     originWhitelist?: string[];
+    logger?: (...rest) => void;
 }
 
 //
@@ -55,12 +56,13 @@ export const createWss = (
     args.path = args.path === void 0 ? '/ws/' : args.path; // hard default
 
     const wss = new WebSocket.Server(args);
+    const clog = options.logger || (() => void 0);
 
     // debug
     if (args.port) {
-        console.log(`WebSocket.Server listening on ${args.port}...`);
+        clog(`WebSocket.Server listening on ${args.port}...`);
     } else {
-        console.log(`WebSocket.Server listening on http.Server's port...`);
+        clog(`WebSocket.Server listening on http.Server's port...`);
     }
 
     //
