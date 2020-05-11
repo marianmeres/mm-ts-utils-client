@@ -23,7 +23,7 @@ export declare class MMStorage {
      * API for direct access to underlying storage
      * @returns {Storage}
      */
-    readonly native: Storage;
+    get native(): Storage;
     /**
      * @param key
      * @param val

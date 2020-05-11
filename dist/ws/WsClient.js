@@ -20,7 +20,7 @@ var __spreadArrays = (this && this.__spreadArrays) || function () {
     return r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var eventemitter3_1 = require("eventemitter3");
+var EventEmitter = require("eventemitter3");
 var WsMessage_1 = require("./WsMessage");
 /**
  * inspired by:
@@ -454,5 +454,5 @@ var WsClient = /** @class */ (function (_super) {
     // "once" map of `onSuccess` handlers...
     WsClient._pendingCallbacks = new Map();
     return WsClient;
-}(eventemitter3_1.EventEmitter));
+}(EventEmitter));
 exports.WsClient = WsClient;

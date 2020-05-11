@@ -1,4 +1,4 @@
-import { EventEmitter } from 'eventemitter3';
+import * as EventEmitter from 'eventemitter3';
 import { WsMessage, WsMessageData } from './WsMessage';
 export interface WsClientOptions {
     debug?: boolean;
@@ -47,7 +47,7 @@ export declare class WsClient extends EventEmitter {
     /**
      * will be set on server's first successfull TYPE_CONNECTION_ESTABLISHED message
      */
-    readonly cid: any;
+    get cid(): any;
     /**
      * @param args
      */
@@ -56,7 +56,7 @@ export declare class WsClient extends EventEmitter {
      * idea is, that the 'native' WebSocket instance should be considered low-level
      * and not really be used directly unless needed...
      */
-    readonly connection: WebSocket;
+    get connection(): WebSocket;
     /**
      *
      */
@@ -130,7 +130,7 @@ export declare class WsClient extends EventEmitter {
     /**
      *
      */
-    readonly joinedRooms: Map<any, any>;
+    get joinedRooms(): Map<any, any>;
     /**
      * @param cb
      */
