@@ -23,7 +23,7 @@
   "dependencies": {
     "eventemitter3": "^4.0.0",
     "jest": "^24.9.0",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.21",
     "mm-ts-utils": "git+https://github.com/marianmeres/mm-ts-utils.git",
     "ws": "^6.1.3"
   },
